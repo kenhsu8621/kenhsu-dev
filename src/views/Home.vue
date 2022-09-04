@@ -67,6 +67,7 @@
     }
 
     .bottom-section {
+      min-height: 100vh;
       padding-top: 3vh;
       font-size: 18px;
       color: $mainGreen;

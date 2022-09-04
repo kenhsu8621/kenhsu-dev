@@ -46,12 +46,11 @@
           font-size: 8vw;
           color: #71efb6;
           margin-right: 5px;
-          // transform: rotate(-0deg);
           animation: shake 2s ease-in-out infinite alternate;
 
           @keyframes shake {
             to {
-              transform: rotate(-15deg);
+              rotate: -15deg;
             }
           }
         }

@@ -42,13 +42,17 @@
         width: 9px;
         height: 9px;
         border-radius: 100%;
-        transform: scale(0.75);
+        scale: 0.75;
         display: block;
         position: absolute;
         opacity: 0.3;
         animation: antSpinMove 1s infinite linear alternate;
-        transform-origin: 50% 50%;
 
+        @keyframes antSpinMove {
+          to {
+            opacity: 1;
+          }
+        }
         // &:nth-child(1) {
         //   left: 0;
         //   top: 0;
@@ -99,18 +103,15 @@
     }
 
     .dot-animation {
-      transform: rotate(45deg);
       animation: antRotate 1.2s infinite linear;
-    }
 
-    @keyframes antSpinMove {
-      to {
-        opacity: 1;
-      }
-    }
-    @keyframes antRotate {
-      to {
-        transform: rotate(405deg);
+      @keyframes antRotate {
+        from {
+          rotate: 0;
+        }
+        to {
+          rotate: 360deg;
+        }
       }
     }
   }
