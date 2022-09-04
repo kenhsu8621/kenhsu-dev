@@ -75,7 +75,7 @@
         background: linear-gradient(90deg, #2bef97, #17c0d6);
 
         &:hover {
-          background: linear-gradient(90deg, #2bef97, #8f91fe);
+          background: linear-gradient(90deg, #2bef97, #3b79ff);
         }
       }
     }

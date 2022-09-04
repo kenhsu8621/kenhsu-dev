@@ -41,8 +41,9 @@
   <div class="navbar">
     <a-row>
       <a-col :span="6" class="left">
-        <a class="kh-logo">
-          <img src="../assets/images/kh-frame.svg" alt="kh-logo" width="50" />
+        <a class="dev-logo">
+          <img class="dev-logo-default" src="../assets/images/dev-gradient.svg" alt="dev-logo" width="50" />
+          <img class="dev-logo-alt" src="../assets/images/dev-alt.svg" alt="dev-logo" width="50" />
         </a>
       </a-col>
       <a-col :span="12" class="center">
@@ -82,6 +83,7 @@
     width: 100%;
     height: 70px;
     background-color: $bgThreeQuartersOpacity;
+    background-color: #fff;
     filter: blur(0px);
     box-shadow: $mainBoxShadow;
     .ant-col {
@@ -103,7 +105,7 @@
 
           @keyframes move {
             to {
-              transform: translateY(-2px);
+              translate: 0 -2px;
             }
           }
         }
@@ -111,8 +113,30 @@
     }
 
     .left {
-      .kh-logo {
+      position: relative;
+      .dev-logo {
         margin-left: 15px;
+        .dev-logo-default {
+          position: absolute;
+          top: 10px;
+          opacity: 1;
+          transition: $mainTransition;
+
+          &:hover {
+            opacity: 0;
+          }
+        }
+        .dev-logo-alt {
+          position: absolute;
+          top: 10px;
+          left: 15px;
+          opacity: 0;
+          transition: $mainTransition;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
       }
     }
 
