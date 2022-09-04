@@ -123,15 +123,14 @@
           // 建立場景
           const scene = new THREE.Scene();
           const renderer = new THREE.WebGLRenderer({ antialias: true });
-          // renderer.setSize(this.$refs.modelCanvas.clientWidth, this.$refs.modelCanvas.clientWidth / 2);
           renderer.setSize(this.$refs.modelCanvas.clientWidth, this.$refs.modelCanvas.clientHeight);
-          // renderer.toneMapping = THREE.ReinhardToneMapping;
-          // renderer.toneMappingExposure = 2.3;
-          renderer.outputEncoding = THREE.sRGBEncoding;
           renderer.setClearColor(0x000000, 0); // set transparent bg
-          this.$refs.modelCanvas.appendChild(renderer.domElement);
 
           // 加入環境及陰影
+          // renderer.toneMapping = THREE.ReinhardToneMapping;
+          // renderer.toneMappingExposure = 5;
+          renderer.outputEncoding = THREE.sRGBEncoding;
+          this.$refs.modelCanvas.appendChild(renderer.domElement);
           const pmremGenerator = new THREE.PMREMGenerator(renderer);
           scene.environment = pmremGenerator.fromScene(new RoomEnvironment(), 1).texture;
 
@@ -148,7 +147,12 @@
           const loader = new GLTFLoader();
           let model;
 
-          const modelSrc = ["./static/models/vue.glb", "./static/models/threejs.glb", "./static/models/razer_0.9.glb"];
+          const modelSrc = [
+            "./static/models/dev.glb",
+            "./static/models/vue.glb",
+            "./static/models/threejs.glb",
+            "./static/models/razer.glb",
+          ];
           this.currentModel = modelType ?? this.currentModel;
           loader.load(
             // resource URL
@@ -196,18 +200,15 @@
           controls.update();
 
           // 建立光源
-          const dLight = new THREE.DirectionalLight(0x404040, 1);
-          dLight.position.set(0, 1, 0);
-          dLight.castShadow = true;
-          scene.add(dLight);
-
-          const aLight = new THREE.AmbientLight(0x4040404, 100);
-          scene.add(aLight);
+          // const dLight = new THREE.DirectionalLight(0x404040);
+          // dLight.position.set(100, 100, 100);
+          // dLight.position.set(0, 1, 0);
+          // scene.add(dLight);
 
           const light = new THREE.PointLight(0xc4c4c4, 1);
           light.position.set(0, 300, 500);
           scene.add(light);
-          const light2 = new THREE.PointLight(0xc4c4c4, 3);
+          const light2 = new THREE.PointLight(0xc4c4c4, 1);
           light2.position.set(500, 100, 0);
           scene.add(light2);
           const light3 = new THREE.PointLight(0xc4c4c4, 1);
@@ -266,6 +267,7 @@
       clearPreviousModel() {
         this.$refs.modelCanvas.innerHTML = "";
         this.isStop = true;
+        this.ishideGrid = true;
         clock = null;
         mixer = 0;
         clips = null;
@@ -337,7 +339,7 @@
 <template>
   <div class="model-viewer" ref="modelViewer" @mousedown="setClicked" @mouseup="showHints = false">
     <!-- <div class="transition-mask" refs="transitionMask" v-show="isLoading"></div> -->
-    <CustomSpin v-show="isLoading" :size="30"></CustomSpin>
+    <CustomSpin v-show="isLoading" :size="40"></CustomSpin>
     <div class="model-canvas" ref="modelCanvas"></div>
     <div class="hello" ref="hello" v-show="showHello && isHome">
       {{ $t("model_viewer.hello") }}
@@ -365,12 +367,15 @@
 
         <a-space class="model-select-container">
           <a-button shape="round" @click="initializeModel(0, false)" :class="{ 'active-model': currentModel == 0 }"
+            ><img src="../assets/images/dev-black.svg"
+          /></a-button>
+          <a-button shape="round" @click="initializeModel(1, false)" :class="{ 'active-model': currentModel == 1 }"
             ><i class="devicon-vuejs-plain"></i
           ></a-button>
-          <a-button shape="round" @click="initializeModel(1, false)" :class="{ 'active-model': currentModel == 1 }"
+          <a-button shape="round" @click="initializeModel(2, false)" :class="{ 'active-model': currentModel == 2 }"
             ><i class="devicon-threejs-original"></i
           ></a-button>
-          <a-button shape="round" @click="initializeModel(2, false)" :class="{ 'active-model': currentModel == 2 }"
+          <a-button shape="round" @click="initializeModel(3, false)" :class="{ 'active-model': currentModel == 3 }"
             ><img src="../assets/images/razer.svg"
           /></a-button>
         </a-space>
@@ -621,10 +626,10 @@
 
           @keyframes rotateIcon {
             from {
-              transform: rotate(0);
+              rotate: 0;
             }
             to {
-              transform: rotate(360deg);
+              rotate: 360deg;
             }
           }
         }
@@ -635,7 +640,7 @@
 
           @keyframes move {
             to {
-              transform: translateX(3px);
+              translate: 3px;
             }
           }
         }
@@ -645,7 +650,7 @@
 
           @keyframes zoom {
             to {
-              transform: scale(1.3);
+              scale: 1.3;
             }
           }
         }
@@ -723,13 +728,12 @@
     }
 
     .fade-in {
-      // transform: translateX(3vw);
       opacity: 1;
       transition: opacity ease-in-out 0.5s;
     }
 
     .fade-in-right {
-      transform: translateX(-3vw);
+      translate: -3vw;
       opacity: 1;
       transition: all ease-in-out 1.5s;
     }
