@@ -44,6 +44,7 @@
         <a class="dev-logo">
           <img class="dev-logo-default" src="../assets/images/dev-gradient.svg" alt="dev-logo" width="50" />
           <img class="dev-logo-alt" src="../assets/images/dev-alt.svg" alt="dev-logo" width="50" />
+          <span class="my-name">KEN HSU</span>
         </a>
       </a-col>
       <a-col :span="12" class="center">
@@ -96,11 +97,11 @@
       .nav-link {
         font-size: 20px;
         height: 100%;
-        color: #213547;
+        color: $mainBlack;
         padding: 0 15px;
 
         &:hover {
-          color: #21bba1;
+          color: $mainDarkgreen;
           animation: move 0.3s infinite linear alternate;
 
           @keyframes move {
@@ -136,6 +137,12 @@
           &:hover {
             opacity: 1;
           }
+        }
+
+        .my-name {
+          color: $mainBlack;
+          font-size: 20px;
+          margin-left: 60px;
         }
       }
     }

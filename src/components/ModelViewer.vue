@@ -189,7 +189,7 @@
             5000 //far
           );
           camera.position.x = 0;
-          camera.position.y = 0;
+          camera.position.y = 5;
           camera.position.z = 25;
 
           // 縮放、平移、旋轉等控制
@@ -424,7 +424,7 @@
     </div>
 
     <div class="technique-list" ref="techiqueList">
-      <label>made with</label>
+      <label>built with</label>
       <a href="https://threejs.org/" target="_blank">
         <a-tooltip title="three.js" color="rgba(255, 255, 255, 0.2)">
           <i class="devicon-threejs-original"></i> </a-tooltip
@@ -618,7 +618,7 @@
 
         .anticon {
           font-size: 16px;
-          color: #14cab5;
+          color: $mainDarkgreen;
         }
 
         .anticon-redo {
@@ -714,13 +714,13 @@
       z-index: 999;
 
       &:hover {
-        color: #00d08b;
+        color: $mainDarkgreen;
       }
     }
 
     .scroll-to-top {
       position: fixed;
-      color: #00d08b;
+      color: $mainDarkgreen;
 
       &:hover {
         color: $mainGreen;
