@@ -17,20 +17,19 @@
 
   .ant-btn {
     background: $bgThreeQuartersOpacity;
-
     &:hover,
     &:focus {
       color: rgba(0, 0, 0, 0.85);
       border: 1px solid #ddd;
     }
     &:hover {
-      background: $mainLightgreen;
+      background: $lightGreen;
     }
 
     i {
       font-size: 25px;
       font-weight: bold;
-      color: $mainDarkgrey;
+      color: $darkGrey;
     }
   }
 

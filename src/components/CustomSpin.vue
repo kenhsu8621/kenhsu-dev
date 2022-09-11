@@ -5,9 +5,9 @@
 </script>
 
 <template>
-  <div class="backdrop">
+  <div class="custom-spin">
     <span
-      class="custom-spin dot-animation"
+      class="custom-spin-icon dot-animation"
       :style="{
         fontSize: size + 'px',
         width: size + 'px',
@@ -23,11 +23,11 @@
 </template>
 
 <style lang="scss" scoped>
-  .backdrop {
+  .custom-spin {
     position: fixed;
     height: 100vh;
     background: rgba(50, 50, 50, 0.3);
-    .custom-spin {
+    .custom-spin-icon {
       position: fixed;
       display: inline-block;
       font-size: 20px;

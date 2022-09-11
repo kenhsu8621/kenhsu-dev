@@ -1,12 +1,15 @@
   $bgHalfOpacity: rgba(255, 255, 255, 0.5);
   $bgThreeQuartersOpacity: rgba(255, 255, 255, 0.75);
-  $mainBlack: #213547;
-  $mainDarkblue: #0a192e;
-  $mainDarkgrey: #333;
+  $black: #213547;
+  $navy: #0a192e;
+  $lightNavy:#112240;
+  $lightestNavy:#233554;
+  $darkGrey: #333;
+  $green:#7fffd4;
+  $lightGreen:#d7fff2;
+  $darkGreen: #21bba1;
+  $velvet:#e1daf8;
+
+  $mainTransition: linear 0.2s;
   $mainBoxShadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   $antBtnBoxShadow: 0 2px 0 rgb(0 0 0 / 2%);
-  $mainGreen:#7fffd4;
-  $mainLightgreen:#d7fff2;
-  $mainDarkgreen: #21bba1;
-  $mainVelvet:#e1daf8;
-  $mainTransition: ease-in-out 0.2s;

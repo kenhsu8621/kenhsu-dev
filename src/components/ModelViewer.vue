@@ -570,7 +570,7 @@
           i {
             font-size: 25px;
             font-weight: bold;
-            color: $mainDarkgrey;
+            color: $darkGrey;
           }
 
           img {
@@ -580,7 +580,7 @@
           }
         }
         .active-model {
-          background: $mainLightgreen;
+          background: $lightGreen;
         }
       }
     }
@@ -618,7 +618,7 @@
 
         .anticon {
           font-size: 16px;
-          color: $mainDarkgreen;
+          color: $darkGreen;
         }
 
         .anticon-redo {
@@ -709,21 +709,19 @@
 
     .scroll-down {
       position: absolute;
-      color: $mainDarkgrey;
+      color: $darkGrey;
       left: 35px;
       z-index: 999;
-
       &:hover {
-        color: $mainDarkgreen;
+        color: $darkGreen;
       }
     }
 
     .scroll-to-top {
       position: fixed;
-      color: $mainDarkgreen;
-
+      color: $darkGreen;
       &:hover {
-        color: $mainGreen;
+        color: $green;
       }
     }
 

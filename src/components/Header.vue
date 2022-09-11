@@ -38,12 +38,12 @@
 </script>
 
 <template>
-  <div class="navbar">
+  <div class="header">
     <a-row>
       <a-col :span="6" class="left">
-        <a class="dev-logo">
-          <img class="dev-logo-default" src="../assets/images/dev-gradient.svg" alt="dev-logo" width="50" />
-          <img class="dev-logo-alt" src="../assets/images/dev-alt.svg" alt="dev-logo" width="50" />
+        <a class="dev-icon">
+          <img class="dev-icon-default" src="../assets/images/dev-icon.svg" alt="dev-icon" width="50" />
+          <img class="dev-icon-hover" src="../assets/images/dev-icon-hover.svg" alt="dev-icon" width="50" />
           <span class="my-name">KEN HSU</span>
         </a>
       </a-col>
@@ -78,7 +78,7 @@
 <style lang="scss" scoped>
   @import "../assets/scss/variables.scss";
 
-  .navbar {
+  .header {
     position: fixed;
     z-index: 9;
     width: 100%;
@@ -97,11 +97,10 @@
       .nav-link {
         font-size: 20px;
         height: 100%;
-        color: $mainBlack;
+        color: $black;
         padding: 0 15px;
-
         &:hover {
-          color: $mainDarkgreen;
+          color: $darkGreen;
           animation: move 0.3s infinite linear alternate;
 
           @keyframes move {
@@ -115,33 +114,31 @@
 
     .left {
       position: relative;
-      .dev-logo {
+      .dev-icon {
         margin-left: 15px;
-        .dev-logo-default {
+        .dev-icon-default {
           position: absolute;
           top: 10px;
           opacity: 1;
           transition: $mainTransition;
-
           &:hover {
             opacity: 0;
           }
         }
-        .dev-logo-alt {
+        .dev-icon-hover {
           position: absolute;
           top: 10px;
           left: 15px;
           opacity: 0;
           transition: $mainTransition;
-
           &:hover {
             opacity: 1;
           }
         }
 
         .my-name {
-          color: $mainBlack;
-          font-size: 20px;
+          color: $black;
+          font-size: 22px;
           margin-left: 60px;
         }
       }
@@ -156,7 +153,7 @@
         padding: 6px;
         top: 16px;
         right: 15px;
-        color: $mainDarkgrey;
+        color: $darkGrey;
         background-color: $bgThreeQuartersOpacity;
         border-radius: 19px;
         border: 1px solid #ddd;
@@ -177,9 +174,8 @@
           right: 8px;
           border-radius: 50%;
           transition: $mainTransition;
-
           &:hover {
-            background-color: $mainLightgreen;
+            background-color: $lightGreen;
           }
         }
 
@@ -207,19 +203,18 @@
             border-radius: 15px;
             cursor: pointer;
             box-shadow: $antBtnBoxShadow;
-
             &:hover {
-              background-color: $mainLightgreen;
+              background-color: $lightGreen;
             }
           }
 
           .btn-active {
-            background-color: $mainLightgreen;
+            background-color: $lightGreen;
             border: 1px solid #ddd;
           }
 
           .btn-inactive {
-            color: $mainDarkgrey;
+            color: $darkGrey;
             background-color: transparent;
             border: 1px solid #ddd;
           }
@@ -229,7 +224,6 @@
       .expand {
         width: 160px;
         transition: $mainTransition;
-
         &:hover {
           background-color: $bgThreeQuartersOpacity;
         }
