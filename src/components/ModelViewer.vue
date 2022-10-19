@@ -39,8 +39,8 @@
         gridSize: 500,
         divisions: 50,
         isStop: true,
-        ishideGrid: true,
-        isHideScollDown: false,
+        isHideGrid: true,
+        isHideScrollDown: false,
         showHello: true,
         showHints: false,
         disableHints: false,
@@ -107,8 +107,8 @@
 
       window.addEventListener("scroll", () => {
         if (window.scrollY + 150 > window.innerHeight) {
-          this.isHideScollDown = true;
-        } else this.isHideScollDown = false;
+          this.isHideScrollDown = true;
+        } else this.isHideScrollDown = false;
       });
     },
     methods: {
@@ -196,7 +196,6 @@
           const controls = new OrbitControls(camera, renderer.domElement);
           // controls.minZoom = 1;
           // controls.maxZoom = 1.5;
-          controls.enableZoom = false;
           controls.update();
 
           // 建立光源
@@ -246,12 +245,12 @@
       },
 
       toggleGrid() {
-        if (this.ishideGrid) {
+        if (this.isHideGrid) {
           gridHelper.visible = true;
         } else {
           gridHelper.visible = false;
         }
-        this.ishideGrid = !this.ishideGrid;
+        this.isHideGrid = !this.isHideGrid;
       },
 
       changeViewerBackground(background) {
@@ -267,7 +266,7 @@
       clearPreviousModel() {
         this.$refs.modelCanvas.innerHTML = "";
         this.isStop = true;
-        this.ishideGrid = true;
+        this.isHideGrid = true;
         clock = null;
         mixer = 0;
         clips = null;
@@ -278,7 +277,7 @@
         if (!this.disableHints) this.showHints = true;
         this.isClicked = true;
         this.$refs.toolBox.classList.add("fade-in");
-        this.$refs.techiqueList.classList.add("fade-in-right");
+        this.$refs.techniqueList.classList.add("fade-in-right");
         this.$refs.hello.classList.add("fade-out");
         setTimeout(() => {
           this.$refs.hello.style.display = "none";
@@ -388,7 +387,7 @@
             <span v-if="isStop"><CaretRightOutlined :style="{ fontSize: '20px', paddingLeft: '5px' }" /></span>
             <span v-if="!isStop"><PauseOutlined :style="{ fontSize: '20px' }" /></span>
           </a-button>
-          <a-button :class="{ 'active-model': !ishideGrid }" shape="round" @click="toggleGrid">
+          <a-button :class="{ 'active-model': !isHideGrid }" shape="round" @click="toggleGrid">
             <span><TableOutlined :style="{ fontSize: '20px' }" /></span
           ></a-button>
           <a-button :class="{ 'active-model': !disableHints }" shape="round" @click="disableHints = !disableHints">
@@ -423,7 +422,7 @@
       </div>
     </div>
 
-    <div class="technique-list" ref="techiqueList">
+    <div class="technique-list" ref="techniqueList">
       <label>built with</label>
       <a href="https://threejs.org/" target="_blank">
         <a-tooltip title="three.js" color="rgba(255, 255, 255, 0.2)">
@@ -443,13 +442,13 @@
 
     <DownCircleOutlined
       class="scroll-btn scroll-down"
-      :class="{ 'fade-in': !isHideScollDown }"
+      :class="{ 'fade-in': !isHideScrollDown }"
       v-if="isClicked && isHome"
       @click="scrollToAnchor('bottom')"
     />
     <UpCircleOutlined
       class="scroll-btn scroll-to-top"
-      :class="{ 'fade-in': isHideScollDown }"
+      :class="{ 'fade-in': isHideScrollDown }"
       v-if="isHome"
       @click="scrollToAnchor('top')"
     />

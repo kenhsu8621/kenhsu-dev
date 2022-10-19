@@ -28,8 +28,8 @@
     }
   }
 
-  watch(locale, (newlocale) => {
-    localStorage.setItem("locale", newlocale);
+  watch(locale, (newLocale) => {
+    localStorage.setItem("locale", newLocale);
   });
 
   onMounted(() => {
