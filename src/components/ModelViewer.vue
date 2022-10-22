@@ -740,13 +740,5 @@
       transition: ease-in-out 2s;
     }
 
-    .custom-spin {
-      position: absolute;
-      width: 50px;
-      top: 45vh;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-    }
   }
 </style>
